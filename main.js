@@ -63,6 +63,7 @@ const update=(i)=>{
 const calculate=()=>{
   const calendario2=calendario()
   const turnos= valor
+  let days=15
   let reNocFes=0
   let reFes=0
   let dias2=0
@@ -73,6 +74,10 @@ const calculate=()=>{
   
   calendario2.forEach(e=>{
     let i=calendario2.indexOf(e)
+    if (valor[i]==0){
+    }else if(valor[i]==5){
+      days+=-1
+    }else{
     if (festivos.includes(e.getTime())||e.getDay()==0){
       if(i ==0){
         if(valor[i]==3){
@@ -105,11 +110,11 @@ const calculate=()=>{
     }
     
 
-  })
+  }})
   const respuesta=document.getElementById("calculo");
   respuesta.innerHTML=`
   <h2>
-  "Salario Basico: ${Math.round(15*hora*8)}"
+  "Salario Basico: ${Math.round(days*hora*8)}"
   </h2>
   <h2>
   "Festivos: ${Math.round(reFes*hora*1.75)}"
@@ -121,7 +126,7 @@ const calculate=()=>{
   "Nocturnas: ${Math.round( reNoc*hora*0.35)}"
   </h2>
   <h2>
-  "Total: ${Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+15*hora*8)}
+  "Total: ${Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)}
   </h2>`
 }
 
