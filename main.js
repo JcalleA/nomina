@@ -46,7 +46,8 @@ const calcular=()=>{
   const calendario1=calendario()
   
   calendario1.forEach(e=>{
-  section.innerHTML+=`<div class="cuadro"><h1>${e.toDateString()}</h1><input type='number' id=${calendario1.indexOf(e)} onchange="update(${calendario1.indexOf(e)})">
+  section.innerHTML+=
+  `<div class="cuadro"><h1>${e.toDateString()}</h1><input type='number' id=${calendario1.indexOf(e)} onchange="update(${calendario1.indexOf(e)})">
       </div>`
   
   })
