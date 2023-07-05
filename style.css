@@ -1,0 +1,25 @@
+body {
+    font-size: 15pt;
+    width: 100vw;
+}
+
+.button{
+  width: 200px;
+  height: 200px;
+}
+
+.calendario{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.cuadro h1, input{
+  font-size: 1rem;
+  width: 90%;
+  height: 50px;
+}
+.cuadro{
+  width: 23%;
+}
