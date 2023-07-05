@@ -47,7 +47,8 @@ const calcular=()=>{
   
   calendario1.forEach(e=>{
   section.innerHTML+=
-  `<div class="cuadro"><h1>${e.toDateString()}</h1><input type='number' id=${calendario1.indexOf(e)} onchange="update(${calendario1.indexOf(e)})">
+  `<div class="cuadro"><h1>${e.toLocaleDateString('en-us', { day:"numeric", month:"short"})
+}</h1><input type='number' id=${calendario1.indexOf(e)} onchange="update(${calendario1.indexOf(e)})">
       </div>`
   
   })
@@ -66,7 +67,7 @@ const calculate=()=>{
   let reFes=0
   let dias2=0
   let reNoc=0
-  let basico=3054000
+  let basico=document.getElementById("salario").value
   let hora=basico/30/8
   
   
@@ -102,10 +103,25 @@ const calculate=()=>{
     }else if(valor[i]==2){
           reNoc+=1
     }
-    console.log(Math.round( reFes*hora*1.75),Math.round( reNoc*hora*0.35),Math.round( reNocFes*hora*2.1),15*hora*8);
-        console.log(Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+15*hora*8));
+    
 
   })
-  
+  const respuesta=document.getElementById("calculo");
+  respuesta.innerHTML=`
+  <h2>
+  "Salario Basico: ${Math.round(15*hora*8)}"
+  </h2>
+  <h2>
+  "Festivos: ${Math.round(reFes*hora*1.75)}"
+  </h2>
+  <h2>
+  "NocFestivas: ${Math.round( reNocFes*hora*2.1)}
+  </h2>
+  <h2>
+  "Nocturnas: ${Math.round( reNoc*hora*0.35)}"
+  </h2>
+  <h2>
+  "Total: ${Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+15*hora*8)}
+  </h2>`
 }
 
