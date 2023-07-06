@@ -74,10 +74,16 @@ const calculate=()=>{
   
   calendario2.forEach(e=>{
     let i=calendario2.indexOf(e)
+    console.log("dia",e.getDay(),e.getDay()==6);
+    console.log("indice",valor[i],valor[i]==3);
     if (valor[i]==0){
     }else if(valor[i]==5){
       days+=-1
-    }else{
+    }else if(e.getDay()==6&valor[i]==3){
+      reNocFes+=6
+      reNoc+=2
+    }
+    else{
     if (festivos.includes(e.getTime())||e.getDay()==0){
       if(i ==0){
         if(valor[i]==3){
