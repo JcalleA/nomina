@@ -153,9 +153,13 @@ const calculate=()=>{
   <td>2</td>
     <td>${cop.format(Math.round(hora*1.25*2))}</td>
   </tr>
+  <tr>
+  <th>Salud Pension</th>
+  <td>-${cop.format(Math.round( (reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)*0.04*2))}</td>
+  </tr>
    <tr>
   <th>Total</th>
-  <td> ${cop.format(Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8))}</td>
+  <td> ${cop.format(Math.round(( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)- (reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)*0.04*2))}</td>
   </tr>
   </table>
   `
