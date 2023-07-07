@@ -37,18 +37,19 @@ const calendario=()=>{
   return listaCalendario
 }
 const calcular=()=>{
-  
+  document.getElementById("calcular__boton").style.display="block"
   const section=document.getElementById("calendario")
   
   const calendario1=calendario()
-  
+  let output=''
   calendario1.forEach(e=>{
-  section.innerHTML+=
+  output+=
   `<div class="cuadro"><h1>${e.toLocaleDateString('en-us', { day:"numeric", month:"short"})
 }</h1><input type='number' id=${calendario1.indexOf(e)} onchange="update(${calendario1.indexOf(e)})">
       </div>`
   
   })
+  section.innerHTML=output;
   
 }
 let valor=[]

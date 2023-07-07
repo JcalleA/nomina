@@ -66,3 +66,12 @@ button{
   text-align: center;
   width: 30%
 }
+.calcular__boton{
+  display: none
+}
+.button__container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
