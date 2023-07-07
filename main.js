@@ -34,9 +34,6 @@ const calendario=()=>{
     let fecha =listaCalendario[i].getTime()+msDia
     listaCalendario.push(new Date(fecha))
   }
-  console.log(listaCalendario[0].getDay()==0);
-  console.log(fecha1.getDay());
-  console.log(festivos.includes(listaCalendario[0].getTime()));
   return listaCalendario
 }
 const calcular=()=>{
@@ -74,34 +71,23 @@ const calculate=()=>{
   
   calendario2.forEach(e=>{
     let i=calendario2.indexOf(e)
-    console.log("dia",e.getDay(),e.getDay()==6);
-    console.log("indice",valor[i],valor[i]==3);
     if (valor[i]==0){
     }else if(valor[i]==5){
       days+=-1
     }else if(e.getDay()==6&valor[i]==3){
       reNocFes+=6
       reNoc+=2
-    }
-    else{
-    if (festivos.includes(e.getTime())||e.getDay()==0){
-      if(i ==0){
-        if(valor[i]==3){
-         reNocFes+=2
-         reNoc+=6
-        }else if(valor[i]==2){
-          reNocFes+=1
-          reFes+=7
-        }else{
-          reFes+=8
-        }
-      }else if(valor[i]==3){
-        if(valor[i-1]==3){
-          reNocFes+=8
-        }else {
-          reNocFes+=2
-          reNoc+=6
-        }
+    }else if(i<calendario2.length-1){
+    if(valor[i]==3&e.getDay()==0&festivos.includes(calendario2[i+1].getTime())){
+      reNocFes+=8
+    }else if(valor[i]==3&festivos.includes(calendario2[i+1].getTime())){
+      reNocFes+=6
+      reNoc+=2
+    }else if (festivos.includes(e.getTime())||e.getDay()==0){
+      
+    if(valor[i]==3){
+      reNocFes+=2
+      reNoc+=6
       }else if(valor[i]==2){
           reFes+=7
           reNocFes+=1
@@ -113,26 +99,55 @@ const calculate=()=>{
          reNoc+=8
     }else if(valor[i]==2){
           reNoc+=1
+    }}else{
+      if(valor[i]==3&festivos.includes(e.getTime())){
+        reNocFes+=2
+        reNoc+=6
+      }else if(valor[i]==3&e.getDay()==0){
+        reNocFes+=2
+        reNoc+=2
+      }else if(valor[i]==2&e.getDay()==0){
+        reNocFes+=1
+      }else if(valor[i]==2&festivos.includes(e.getTime())){
+        reNocFes+=1
+      }
+      
+      else if(valor[i]==3){
+        reNoc+=6
+      }else if(valor[i]==2){
+        reNoc+=1
+      }
     }
     
-
-  }})
+  })
   const respuesta=document.getElementById("calculo");
   respuesta.innerHTML=`
-  <h2>
-  "Salario Basico: ${Math.round(days*hora*8)}"
-  </h2>
-  <h2>
-  "Festivos: ${Math.round(reFes*hora*1.75)}"
-  </h2>
-  <h2>
-  "NocFestivas: ${Math.round( reNocFes*hora*2.1)}
-  </h2>
-  <h2>
-  "Nocturnas: ${Math.round( reNoc*hora*0.35)}"
-  </h2>
-  <h2>
-  "Total: ${Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)}
-  </h2>`
+  <table class="tabla">
+  <tr>
+  <th>Basico</th>
+  <td>${days}</td>
+  <td>${Math.round(days*hora*8)}</td>
+  </tr>
+  <tr>
+  <th>Festivos</th>
+  <td>${reFes}</td>
+  <td> ${Math.round(reFes*hora*1.75)}</td>
+  </tr>
+  <tr>
+  <th>NocFestiva</th>
+  <td>${reNocFes}</td>
+  <td> ${Math.round( reNocFes*hora*2.1)}</td>
+  </tr>
+  <tr>
+  <th>Nocturnas</th>
+  <td>${reNoc}</td>
+  <td>${Math.round( reNoc*hora*0.35)}</td>
+  </tr>
+  <tr>
+  <th>Total</th>
+  <td> ${Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)}</td>
+  </tr>
+  </table>`
+  location.hash = "calculo"
 }
 

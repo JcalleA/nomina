@@ -4,7 +4,10 @@ body {
     text-align: center;
     
 }
-
+#salario{
+  height: 40px;
+  font-size: 1.2rem;
+}
 button{
   margin-top: 30px;
   width: 170px;
@@ -53,4 +56,13 @@ button{
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.tabla{
+  margin: 30px;
+  text-align: left;
+  width: 90%;
+}
+.tabla td{
+  text-align: center;
+  width: 30%
 }
