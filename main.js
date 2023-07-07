@@ -68,7 +68,10 @@ const calculate=()=>{
   let reNoc=0
   let basico=document.getElementById("salario").value
   let hora=basico/30/8
-  
+  let cop =new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+});
   
   calendario2.forEach(e=>{
     let i=calendario2.indexOf(e)
@@ -127,28 +130,35 @@ const calculate=()=>{
   <tr>
   <th>Basico</th>
   <td>${days}</td>
-  <td>${Math.round(days*hora*8)}</td>
+  <td>${cop.format(Math.round(days*hora*8))}</td>
   </tr>
   <tr>
   <th>Festivos</th>
   <td>${reFes}</td>
-  <td> ${Math.round(reFes*hora*1.75)}</td>
+  <td> ${cop.format(Math.round(reFes*hora*1.75))}</td>
   </tr>
   <tr>
   <th>NocFestiva</th>
   <td>${reNocFes}</td>
-  <td> ${Math.round( reNocFes*hora*2.1)}</td>
+  <td> ${cop.format(Math.round( reNocFes*hora*2.1))}</td>
   </tr>
   <tr>
   <th>Nocturnas</th>
   <td>${reNoc}</td>
-  <td>${Math.round( reNoc*hora*0.35)}</td>
+  <td>${cop.format(Math.round( reNoc*hora*0.35))}</td>
   </tr>
+ 
   <tr>
-  <th>Total</th>
-  <td> ${Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8)}</td>
+    <th>Horas extra</th>
+  <td>2</td>
+    <td>${cop.format(Math.round(hora*1.25*2))}</td>
   </tr>
-  </table>`
+   <tr>
+  <th>Total</th>
+  <td> ${cop.format(Math.round( reFes*hora*1.75+ reNoc*hora*0.35+ reNocFes*hora*2.1+days*hora*8))}</td>
+  </tr>
+  </table>
+  `
   location.hash = "calculo"
 }
 
