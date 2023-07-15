@@ -1,8 +1,38 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,700;0,900;1,400&family=Staatliches&display=swap');
+
+
 body {
     font-size: 1.4rem;
     width: 100vw;
     text-align: center;
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
     
+}
+.logo img{
+  width: 35vw;
+  margin-bottom: 25px;
+  
+}
+.logo{
+  margin: 0 auto;
+}
+@media (min-width:768px) {
+  body{
+    width: 70vw;
+  }
+  .dias_container{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dias_container .tabla{
+    width: 30%;
+    
+  }
+  
 }
 #salario{
   height: 40px;
@@ -75,4 +105,14 @@ button{
   width: 100%;
   justify-content: center;
   text-align: center;
+}
+.dias_container{
+    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dias_container .tabla{
+  width: 50%;
+  
 }
