@@ -44,7 +44,7 @@ const calcular=()=>{
   let output=''
   calendario1.forEach(e=>{
   output+=
-  `<div class="cuadro"><h1>${e.toLocaleDateString('en-us', { day:"numeric", month:"short"})
+  `<div class="cuadro"><h1>${e.toLocaleDateString('es-ES', { weekday: 'short', day:"numeric", month:"short"})
 }</h1><input type='number' id=${calendario1.indexOf(e)} onchange="update(${calendario1.indexOf(e)})">
       </div>`
   
