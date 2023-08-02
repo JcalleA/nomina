@@ -117,7 +117,7 @@ const calculate=()=>{
       }
       
       else if(valor[i]==3){
-        reNoc+=6
+        reNoc+=8
       }else if(valor[i]==2){
         reNoc+=1
       }
