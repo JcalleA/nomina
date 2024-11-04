@@ -13,8 +13,8 @@ new Date("07/20/2023 00:00:00").getTime(),
 new Date("08/07/2023 00:00:00").getTime(),
 new Date("08/21/2023 00:00:00").getTime(),
 new Date("10/16/2023 00:00:00").getTime(),
-new Date("11/06/2023 00:00:00").getTime(),
-new Date("11/13/2023 00:00:00").getTime(),
+new Date("11/04/2024 00:00:00").getTime(),
+new Date("11/11/2024 00:00:00").getTime(),
 new Date("12/08/2023 00:00:00").getTime(),
 new Date("12/25/2023 00:00:00").getTime()
   ]
